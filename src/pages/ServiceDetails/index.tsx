@@ -1,8 +1,9 @@
 import { useParams, Link } from 'react-router-dom';
 import { useState } from 'react';
 import { Phone, MessageCircle, Clock, CheckCircle, XCircle, Plus, Minus, ArrowLeft } from 'lucide-react';
+import SEO from '@/components/common/SEO';
 import { getServiceBySlug } from '@/data/services';
-import { PHONE_NUMBER } from '@/constants';
+import { PHONE_NUMBER, SITE_URL } from '@/constants';
 import { openWhatsApp } from '@/utils/whatsapp';
 
 export default function ServiceDetails() {
@@ -27,8 +28,40 @@ export default function ServiceDetails() {
     openWhatsApp(`Hello, I want to enquire about ${service.name}.`);
   };
 
+  const serviceSchema = {
+    '@context': 'https://schema.org',
+    '@type': 'Service',
+    name: service.name,
+    description: service.fullDescription,
+    url: `${SITE_URL}/services/${service.slug}`,
+    provider: {
+      '@type': 'LocalBusiness',
+      name: 'Kavach Pest Control',
+      telephone: PHONE_NUMBER,
+      address: {
+        '@type': 'PostalAddress',
+        addressLocality: 'Gwalior',
+        addressRegion: 'Madhya Pradesh',
+        addressCountry: 'IN',
+      },
+    },
+    areaServed: { '@type': 'City', name: 'Gwalior' },
+    offers: {
+      '@type': 'Offer',
+      priceCurrency: 'INR',
+      price: service.startingPrice,
+      availability: 'https://schema.org/InStock',
+    },
+  };
+
   return (
     <div className="pb-20 md:pb-0">
+      <SEO
+        title={service.name}
+        description={`${service.shortDescription} Professional ${service.name.toLowerCase()} in Gwalior by Kavach Pest Control. Starting at ₹${service.startingPrice.toLocaleString('en-IN')}. Book now.`}
+        canonical={`/services/${service.slug}`}
+        structuredData={serviceSchema}
+      />
       {/* Hero */}
       <div className="bg-gradient-to-br from-green-700 to-green-900 text-white py-16">
         <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">

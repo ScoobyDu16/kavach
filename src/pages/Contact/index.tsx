@@ -1,3 +1,4 @@
+import SEO from '@/components/common/SEO';
 import { useForm } from 'react-hook-form';
 import { zodResolver } from '@hookform/resolvers/zod';
 import { Phone, Mail, MapPin, MessageCircle } from 'lucide-react';
@@ -41,6 +42,11 @@ export default function Contact() {
 
   return (
     <>
+      <SEO
+        title="Contact Us"
+        description="Contact Kavach Pest Control in Gwalior. Call, WhatsApp, or fill the enquiry form for same-day pest control service. Reach us at +918839353952."
+        canonical="/contact"
+      />
       {/* Hero */}
       <div className="bg-gradient-to-br from-green-700 to-green-900 text-white py-14">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">

@@ -1,3 +1,4 @@
+export const SITE_URL = 'https://kavachpestcontrol.in'; // 🔁 update after deployment
 export const WHATSAPP_NUMBER = '918839353952';
 export const PHONE_NUMBER = '+918839353952';
 export const EMAIL = 'gabhishek457@gmail.com';

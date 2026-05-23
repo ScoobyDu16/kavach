@@ -1,3 +1,4 @@
+import SEO from '@/components/common/SEO';
 import { useState } from 'react';
 import { useForm } from 'react-hook-form';
 import { zodResolver } from '@hookform/resolvers/zod';
@@ -61,6 +62,11 @@ export default function CommercialEnquiry() {
 
   return (
     <div className="min-h-screen bg-gray-50 py-12">
+      <SEO
+        title="Commercial Pest Control Enquiry"
+        description="Get a custom pest control plan for your business in Gwalior. Fill our commercial enquiry form for offices, restaurants, hotels, hospitals, and warehouses. Annual contracts available."
+        canonical="/commercial-enquiry"
+      />
       <div className="max-w-2xl mx-auto px-4 sm:px-6">
         {/* Header */}
         <div className="text-center mb-10">

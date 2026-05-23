@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { Link, NavLink } from 'react-router-dom';
 import { Menu, Phone, MessageCircle, X } from 'lucide-react';
 import { motion, AnimatePresence } from 'framer-motion';
@@ -23,6 +23,12 @@ const drawerLink = ({ isActive }: { isActive: boolean }) =>
 export default function Navbar() {
   const [drawerOpen, setDrawerOpen] = useState(false);
   const close = () => setDrawerOpen(false);
+
+  // Lock body scroll while drawer is open
+  useEffect(() => {
+    document.body.style.overflow = drawerOpen ? 'hidden' : '';
+    return () => { document.body.style.overflow = ''; };
+  }, [drawerOpen]);
 
   const waMessage = encodeURIComponent('Hello, I want to enquire about pest control services.');
 
@@ -113,7 +119,7 @@ export default function Navbar() {
               {/* Drawer header */}
               <div className="flex items-center justify-between px-5 py-4 border-b border-gray-100">
                 <Link to="/" className="flex items-center" onClick={close}>
-                  <img src="/logo.png" alt={COMPANY_NAME} className="h-9 w-auto object-contain" />
+                  <img src="/logo.png" alt={COMPANY_NAME} className="h-14 w-auto object-contain" />
                 </Link>
                 <button
                   onClick={close}

@@ -1,4 +1,5 @@
 import { ShieldCheck, Leaf, Award, Users } from 'lucide-react';
+import SEO from '@/components/common/SEO';
 import { COMPANY_NAME, CITY } from '@/constants';
 import ContactCTA from '@/components/home/ContactCTA';
 
@@ -12,6 +13,11 @@ const values = [
 export default function About() {
   return (
     <>
+      <SEO
+        title="About Us"
+        description={`Learn about ${COMPANY_NAME} — ${CITY}'s trusted pest control experts. Certified technicians, eco-friendly methods, and 5+ years of protecting homes and businesses.`}
+        canonical="/about"
+      />
       {/* Hero */}
       <div className="bg-gradient-to-br from-green-700 to-green-900 text-white py-16 md:py-24">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">

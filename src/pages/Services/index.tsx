@@ -1,5 +1,6 @@
 import { useState } from 'react';
 import { Search } from 'lucide-react';
+import SEO from '@/components/common/SEO';
 import ServiceCard from '@/components/ui/ServiceCard';
 import SectionHeader from '@/components/ui/SectionHeader';
 import { services } from '@/data/services';
@@ -21,6 +22,11 @@ export default function Services() {
 
   return (
     <div className="py-12 md:py-20 bg-gray-50 min-h-screen">
+      <SEO
+        title="All Pest Control Services"
+        description="Browse all pest control services offered by Kavach in Gwalior — bed bug control, mosquito control, cockroach control, rodent control, termite treatment, lizard control, and commercial pest management."
+        canonical="/services"
+      />
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <SectionHeader
           eyebrow="All Services"
