@@ -1,0 +1,41 @@
+@import "tailwindcss";
+
+/* Tailwind v4 Preflight already handles box-sizing and margin/padding resets.
+   We only add what Preflight doesn't cover. */
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: system-ui, 'Segoe UI', Roboto, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  color: #111827;
+  background-color: #ffffff;
+}
+
+/* Prevent layout overflow on small screens */
+img, svg, video {
+  max-width: 100%;
+}
+
+/* Remove default anchor underlines.
+   NOTE: color must NOT be overridden here — any rule outside @layer
+   beats Tailwind utility classes in v4's cascade, making text-* unusable on <a>.
+   Tailwind Preflight already sets color:inherit inside @layer base. */
+a {
+  text-decoration: none;
+}
+
+/* Pointer cursor on every interactive element.
+   Placed inside @layer base so Tailwind utility classes (cursor-default etc.)
+   can still override per-element when needed. */
+@layer base {
+  a,
+  button,
+  select,
+  [role="button"] {
+    cursor: pointer;
+  }
+}
