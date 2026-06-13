@@ -21,7 +21,7 @@ const serviceLinks = [
 export default function Footer() {
   return (
     <footer className="bg-gray-900 text-gray-300">
-      <Container className="py-12">
+      <Container className="pt-12 pb-0">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
           {/* Brand */}
           <div>
@@ -121,8 +121,19 @@ export default function Footer() {
           </div>
         </div>
 
-        <div className="border-t border-gray-800 mt-10 pt-6 text-center text-xs text-gray-500">
-          © {new Date().getFullYear()} {COMPANY_NAME}. All rights reserved.
+        <div className="border-t border-gray-800 mt-10 pt-4 pb-10 md:pb-4 text-center text-xs text-gray-500 space-y-1">
+          <p>© {new Date().getFullYear()} {COMPANY_NAME}. All rights reserved.</p>
+          <p>
+            Developed by{' '}
+            <a
+              href="https://www.linkedin.com/in/amarpal-singh-26381b153/"
+              target="_blank"
+              rel="noreferrer"
+              className="text-gray-400 hover:text-white transition-colors font-medium"
+            >
+              Amar
+            </a>
+          </p>
         </div>
       </Container>
     </footer>
